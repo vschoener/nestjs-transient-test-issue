@@ -2,11 +2,12 @@ import {
   Inject,
   Injectable,
   LoggerService as NestLoggerService,
+  Scope,
 } from '@nestjs/common';
 import { Logger } from 'chpr-logger';
 import { LOGGER_PROVIDER } from './constants';
 
-@Injectable()
+@Injectable({ scope: Scope.TRANSIENT })
 export class LoggerService implements NestLoggerService {
   public prefix?: string;
 

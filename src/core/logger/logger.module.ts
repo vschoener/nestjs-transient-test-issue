@@ -3,14 +3,7 @@ import { loggerFactory } from './logger.provider';
 import { LoggerService } from './logger.service';
 
 @Module({
-  providers: [
-    loggerFactory,
-    {
-      provide: LoggerService,
-      useClass: LoggerService,
-      scope: Scope.TRANSIENT,
-    },
-  ],
+  providers: [loggerFactory, LoggerService],
   exports: [LoggerService],
 })
 export class LoggerModule {}
